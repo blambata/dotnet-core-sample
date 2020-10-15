@@ -7,10 +7,9 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  CustomValue: "$(BuildDefinitionName)-$(Rev:.r)"
   major: 1
   minor: 1
-name: $(major).$(minor)$(Rev:.r)
+  CustomValue: $(major).$(minor)$(Rev:.r)
 
 steps:
 - script: |
