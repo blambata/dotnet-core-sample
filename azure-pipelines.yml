@@ -7,9 +7,6 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  major: 1
-  minor: 1
-#  CustomValue: $(major).$(minor)$(Rev:.r)
   buildName: "$(TeamProject)_$(Build.DefinitionName)_$(Build.sourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)"
 
 steps:
