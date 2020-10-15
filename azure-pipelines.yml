@@ -3,12 +3,15 @@
 
 pool:
   vmImage: 'Ubuntu 16.04'
-  
+
+
 variables:
   buildConfiguration: 'Release'
+  CustomValue: "$(BuildDefinitionName)-$(Rev:.r)"
 
 steps:
-- script: |
+  - script: |
+    echo "##vso[build.updatebuildnumber]$(CustomValue)"
     dotnet build --configuration $(buildConfiguration)
     dotnet test dotnetcore-tests --configuration $(buildConfiguration) --logger trx
     dotnet publish --configuration $(buildConfiguration) --output $BUILD_ARTIFACTSTAGINGDIRECTORY
