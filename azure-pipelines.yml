@@ -9,8 +9,8 @@ variables:
   buildConfiguration: 'Release'
   major: 1
   minor: 1
-  CustomValue: $(major).$(minor)$(Rev:.r)
-  buildName: "$(CustomValue)_$(Build.sourceBranchName)"
+#  CustomValue: $(major).$(minor)$(Rev:.r)
+  buildName: "$(Build.Buildnumber)_$(Build.sourceBranchName)"
 
 steps:
 - script: |
