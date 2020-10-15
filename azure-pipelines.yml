@@ -10,10 +10,10 @@ variables:
   major: 1
   minor: 1
   CustomValue: $(major).$(minor)$(Rev:.r)
+  buildName: "$(CustomValue)_$(Build.sourceBranchName)"
 
 steps:
 - script: |
-    [String] $buildName = "$(CustomValue)_$(Build.sourceBranchName)"
     echo "##vso[build.updatebuildnumber]$(buildName)"
     dotnet build --configuration $(buildConfiguration)
     dotnet test dotnetcore-tests --configuration $(buildConfiguration) --logger trx
