@@ -10,8 +10,8 @@ variables:
   CustomValue: "$(BuildDefinitionName)-$(Rev:.r)"
 
 steps:
-#  - script: |
-#    echo "##vso[build.updatebuildnumber]$(CustomValue)"
+- script: |
+    echo "##vso[build.updatebuildnumber]$(CustomValue)"
     dotnet build --configuration $(buildConfiguration)
     dotnet test dotnetcore-tests --configuration $(buildConfiguration) --logger trx
     dotnet publish --configuration $(buildConfiguration) --output $BUILD_ARTIFACTSTAGINGDIRECTORY
